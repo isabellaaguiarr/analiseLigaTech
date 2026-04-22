@@ -67,3 +67,28 @@ df.nsmallest(10, 'preco_m2')
 - Insight: conclusão baseada em dados
 - Outlier: valor muito fora do padrão
 - Distribuição: como os dados se espalham
+
+## Conectar projeto ao GitHub
+- Passo 01:
+git init
+
+- Passo 02:
+git remote add origin https://github.com/seu-usuario/meu-projeto.git
+
+- Passo 03:
+git add .
+
+- Passo 04:
+
+git commit -m "Primeiro commit"
+
+- Passo 05:
+git branch -M main
+
+git push -u origin main
+
+- Passo 06: Para novas atualizações
+git status 
+git add .
+git commit -m "Primeiro commit"
+git push
