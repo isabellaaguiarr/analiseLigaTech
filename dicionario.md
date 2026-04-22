@@ -67,6 +67,8 @@ df.nsmallest(10, 'preco_m2')
 - Insight: conclusão baseada em dados
 - Outlier: valor muito fora do padrão
 - Distribuição: como os dados se espalham
+- requirements.txt: arquivo que lista todas as bibliotecas
+-> pip install -r requirements.txt 
 
 ## Conectar projeto ao GitHub
 - Passo 01:

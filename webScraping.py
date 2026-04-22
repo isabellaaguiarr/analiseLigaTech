@@ -84,7 +84,7 @@ while True:
 
     for elem in elementos:
         try:
-            titulo = elem.find_element(By.CLASS_NAME, 'ellipse-text').text
+            endereco  = elem.find_element(By.CLASS_NAME, 'ellipse-text').text
             preco = elem.find_element(By.CLASS_NAME, 'body-large').text
 
             # Quartos
@@ -115,7 +115,7 @@ while True:
 
             # Registro do imovel
             imovel = {
-                'titulo': titulo,
+                'endereco': endereco,
                 'preco': preco,
                 'quartos': quartos_num,
                 'metragem': metragem_texto, 
@@ -139,11 +139,74 @@ while True:
 # Finalizacao
 driver.quit()
 df_total = pd.DataFrame(lst_imoveis)
+#df_total = df_total[~df_total["endereco"].str.contains("DESTAQUE", na=False)] 
 
 output_dir = "data"
 os.makedirs(output_dir, exist_ok=True)
 
-csv_path = os.path.join(output_dir, "imoveis_total_anapolis.csv")
+csv_path = os.path.join(output_dir, "imoveis_anapolis_sem_limpeza.csv")
 df_total.to_csv(csv_path, index=False, encoding="utf-8")
 
 print(f"Arquivo salvo em: {csv_path}")
+
+# # ---------------------------------------------------------------- #
+# # Lendo o CSV
+# df_total = pd.read_csv("data/imoveis_anapolis_sem_limpeza.csv")
+
+# # Exploracao inicial
+# print("Shape inicial:", df_total.shape)
+# df_total.head()
+# df_total.info()
+# df_total.isnull().sum()
+
+# # Limpeza de dados
+# df = df_total[~df_total["endereco"].str.contains("DESTAQUE", na=False)]
+
+# print("Após remover destaques:", df.shape)
+
+# # 01. tratamento preco
+# df["preco"] = (
+#     df["preco"]
+#     .astype(str)
+#     .str.replace(".", "", regex=False)
+#     .str.replace(",", "", regex=False)
+# )
+
+# df["preco"] = pd.to_numeric(df["preco"], errors="coerce")
+
+# # 02. quartos
+# df["quartos"] = df["quartos"].astype(str).str.extract(r"(\d+)")
+# df["quartos"] = pd.to_numeric(df["quartos"], errors="coerce")
+
+# # 03. metragem
+# df["metragem"] = df["metragem"].astype(str).str.extract(r"(\d+)")
+# df["metragem"] = pd.to_numeric(df["metragem"], errors="coerce")
+
+# # 04. Vagas 
+# df["vagas"] = df["vagas"].astype(str).str.extract(r"(\d+)")
+# df["vagas"] = pd.to_numeric(df["vaga"], errors="coerce")
+
+# # 05. Endereco
+# df["endereco"] = df["endereco"].str.upper().str.strip()
+
+# # 06. Limpeza geral 
+# # Vazios → NaN
+# df.replace(r'^\s*$', np.nan, regex=True, inplace=True)
+
+# # Remover linhas críticas
+# df = df.dropna(subset=["preco", "metragem"])
+
+# # Remover duplicatas
+# df = df.drop_duplicates()
+
+# # Ordenar
+# df = df.sort_values(by="preco", ascending=False)
+
+# # Nulos
+# df.isnull().sum()
+
+# # Duplicatas
+# print("Duplicatas:", df.duplicated().sum())
+
+# # Verificando
+# df.head(10)
