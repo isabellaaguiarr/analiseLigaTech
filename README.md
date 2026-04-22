@@ -118,7 +118,7 @@ O arquivo `dicionario.md` funciona como um guia rápido com comandos e conceitos
 1. Clone o repositório:
 
 ```
-git clone https://github.com/seu-usuario/projeto-imoveis.git
+git clone https://github.com/isabellaaguiarr/analiseLigaTech.git
 ```
 
 2. Instale as dependências:
