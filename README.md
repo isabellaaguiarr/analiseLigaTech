@@ -124,7 +124,7 @@ git clone https://github.com/seu-usuario/projeto-imoveis.git
 2. Instale as dependências:
 
 ```
-pip install pandas numpy matplotlib seaborn
+pip install -r requirements.txt
 ```
 
 3. Execute o notebook:
