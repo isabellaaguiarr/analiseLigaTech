@@ -87,6 +87,7 @@ projeto-imoveis/
 │
 ├── notebooks/
 │   └── analise.ipynb
+│   └── detalhando.py → explicação aprofundada 
 │
 ├── dicionario.md
 ├── estrutura.md
