@@ -210,3 +210,12 @@ print(f"Arquivo salvo em: {csv_path}")
 
 # # Verificando
 # df.head(10)
+
+# # Salvando 
+# output_dir = "data"
+# os.makedirs(output_dir, exist_ok=True)
+
+# csv_path = os.path.join(output_dir, "imoveis_anapolis_limpo.csv")
+# df_total.to_csv(csv_path, index=False, encoding="utf-8")
+
+# print(f"Arquivo salvo em: {csv_path}")
