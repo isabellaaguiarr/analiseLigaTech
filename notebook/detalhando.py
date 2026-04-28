@@ -113,11 +113,6 @@ sns.boxplot(x='quartos', y='preco', data=df)
 plt.title("Preço por Número de Quartos")
 plt.show()
 
-# outros
-# # Imóveis com menor preço por m² (possíveis boas oportunidades)
-# df.sort_values(by='preco_m2').head(10)
 
-# # Imóveis mais caros por m²
-# df.sort_values(by='preco_m2', ascending=False).head(10)
 
 

@@ -78,7 +78,10 @@ sns.heatmap(df.corr(), annot=True)
 
 ## 7. Exploração
 - Ordenar -> dados por uma coluna
-df.sort_values(by='preco_m2')
+-- Do menor para o maior
+df.sort_values(by='preco').head(10)
+-- Do maior para o menor 
+df.sort_values(by='preco', ascending=False).head(10)
 
 - Top valores:
 df.nlargest(10, 'preco')
