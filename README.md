@@ -90,7 +90,6 @@ projeto-imoveis/
 │   └── detalhando.py → explicação aprofundada 
 │
 ├── dicionario.md
-├── estrutura.md
 ├── webScraping.py
 └── README.md
 ```
